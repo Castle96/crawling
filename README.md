@@ -1,2 +1,25 @@
 # crawling
-Here’s a practical recursive crawler you can drop into your project. It will:  start from a docs root URL stay on the same domain follow internal links recursively extract clean article text convert/save each page as Markdown avoid revisiting pages skip obvious junk (assets, anchors, binaries, auth pages, etc.)
+
+A simple tool to fetch a web page, extract readable text, summarize it, and save it as a Markdown file ready for local LLM ingestion.
+
+## Usage
+
+- Summarize a single URL:
+
+```bash
+python crawl_docs.py https://example.com/page
+```
+
+- Crawl a site and save each internal page:
+
+```bash
+python crawl_docs.py https://example.com --crawl
+```
+
+- Save files into a custom output directory:
+
+```bash
+python crawl_docs.py https://example.com/page --output-dir docs
+```
+
+The generated Markdown includes a `Summary` section and the extracted `Content` from the page.
